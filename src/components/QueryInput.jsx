@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import QueryHistory from "./QueryHistory";
+import { useSelector } from "react-redux";
 // import '../App.css'
 
 const mockSuggestions = [
@@ -17,7 +18,7 @@ const QueryInput = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [suggestions, setSuggestions] = useState(mockSuggestions);
-  const [queryHistory, setQueryHistory] = useState([]);
+  const { history } = useSelector((state) => state.query);
 
   // Update suggestions based on input
   const handleInputChange = (e) => {
@@ -39,7 +40,6 @@ const QueryInput = ({ onSubmit }) => {
   const handleSubmit = () => {
     if (query.trim()) {
       onSubmit(query);
-      setQueryHistory([query, ...queryHistory]);
       setQuery("");
       setFilteredSuggestions([]);
     }
@@ -76,7 +76,7 @@ const QueryInput = ({ onSubmit }) => {
         >
           Submit Query
         </button>
-        <QueryHistory history={queryHistory} onHistoryClick={handleHistoryClick} />
+        <QueryHistory history={history} onHistoryClick={handleHistoryClick} />
       {/* Suggestion Dropdown */}
       {filteredSuggestions.length > 0 && (
         <div className="absolute mt-40 bg-white border w-1/2 mr-7 rounded-md shadow-lg z-10">

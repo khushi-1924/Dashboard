@@ -10,7 +10,9 @@ const querySlice = createSlice({
   },
   reducers: {
     submitQuery: (state, action) => {
-      state.history.unshift(action.payload); // Add query to the start of the history
+      if (state.history[0] !== action.payload) {
+        state.history.unshift(action.payload); // Add query to the start of the history
+      }
       state.loading = true;
       state.error = null;
     },
@@ -28,5 +30,6 @@ const querySlice = createSlice({
   },
 });
 
-export const { submitQuery, setResults, setError, clearHistory } = querySlice.actions;
+export const { submitQuery, setResults, setError, clearHistory } =
+  querySlice.actions;
 export default querySlice.reducer;

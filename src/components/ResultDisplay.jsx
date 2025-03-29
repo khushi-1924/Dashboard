@@ -1,7 +1,9 @@
 import React from "react";
 import { BarChart, Bar, XAxis, YAxis, Tooltip, ResponsiveContainer } from "recharts";
+import { useDispatch, useSelector } from "react-redux";
 
 const ResultDisplay = ({ data }) => {
+  const { history } = useSelector((state) => state.query);
   // Convert data to chart-friendly format
   const chartData = data.labels.map((label, index) => ({
     name: label,
@@ -10,7 +12,8 @@ const ResultDisplay = ({ data }) => {
 
   return (
     <div className="mt-6 flex flex-col items-center">
-      <h3 className="text-2xl p-4 text-center font-semibold mb-4">Query Results</h3>
+      <h3 className="text-2xl p-1 text-center font-semibold mb-1">Showing Results for</h3>
+      <h1 className="text-xl p-1 text-center mb-4">{history[0]}</h1>
       
       <ResponsiveContainer width="70%" height={300}>
         <BarChart data={chartData}>

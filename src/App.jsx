@@ -40,7 +40,7 @@ function App() {
       </div>
       {loading && <p className="text-center text-xl font-semibold m-4 p-4">Loading results...</p>}
       {error && <p className="text-red-500 text-center text-4xl font-semibold m-4 p-4">{error}</p>}
-      {results && <ResultDisplay data={results} />}
+      {!loading && results && <ResultDisplay data={results} />}
     </div>
   );
 }

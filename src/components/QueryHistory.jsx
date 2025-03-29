@@ -1,6 +1,9 @@
 import React from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { clearHistory } from "../redux/querySlice";
 
 const QueryHistory = ({ history, onHistoryClick }) => {
+  const dispatch = useDispatch();
 
   return (
     <div className="p-4 mt-4 flex flex-col jusitfy-center">
