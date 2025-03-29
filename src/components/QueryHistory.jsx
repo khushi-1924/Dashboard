@@ -1,10 +1,6 @@
 import React from "react";
-import { useDispatch, useSelector } from "react-redux";
-import { clearHistory } from "../redux/querySlice";
 
-const QueryHistory = () => {
-  const dispatch = useDispatch();
-  const history = useSelector((state) => state.query.history);
+const QueryHistory = ({ history, onHistoryClick }) => {
 
   return (
     <div className="p-4 mt-4 flex flex-col jusitfy-center">
@@ -14,9 +10,9 @@ const QueryHistory = () => {
         <p className="text-gray-500 text-center">No queries found.</p>
       ) : (
         <>
-          <ul className="mb-4 border border-gray-500 text-center px-8 rounded-lg shadow-md max-h-56 overflow-y-auto">
+          <ul className="mb-4 border border-gray-500 text-center rounded-lg shadow-md max-h-56 overflow-y-auto">
             {history.map((query, index) => (
-              <li key={index} className="p-2">
+              <li key={index} onClick={() => onHistoryClick(query)} className="py-2 px-10 hover:bg-gray-200 hover:cursor-pointer">
                 {query}
               </li>
             ))}

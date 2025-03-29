@@ -17,6 +17,7 @@ const QueryInput = ({ onSubmit }) => {
   const [query, setQuery] = useState("");
   const [filteredSuggestions, setFilteredSuggestions] = useState([]);
   const [suggestions, setSuggestions] = useState(mockSuggestions);
+  const [queryHistory, setQueryHistory] = useState([]);
 
   // Update suggestions based on input
   const handleInputChange = (e) => {
@@ -38,6 +39,7 @@ const QueryInput = ({ onSubmit }) => {
   const handleSubmit = () => {
     if (query.trim()) {
       onSubmit(query);
+      setQueryHistory([query, ...queryHistory]);
       setQuery("");
       setFilteredSuggestions([]);
     }
@@ -50,6 +52,10 @@ const QueryInput = ({ onSubmit }) => {
   const handleSuggestionClick = (suggestion) => {
     setQuery(suggestion);
     setFilteredSuggestions([]);
+  };
+
+  const handleHistoryClick = (clickedQuery) => {
+    setQuery(clickedQuery); // Populate input field with the clicked query
   };
 
   return (
@@ -70,7 +76,7 @@ const QueryInput = ({ onSubmit }) => {
         >
           Submit Query
         </button>
-        <QueryHistory />
+        <QueryHistory history={queryHistory} onHistoryClick={handleHistoryClick} />
       {/* Suggestion Dropdown */}
       {filteredSuggestions.length > 0 && (
         <div className="absolute mt-40 bg-white border w-1/2 mr-7 rounded-md shadow-lg z-10">
