@@ -1,14 +1,40 @@
+Gen AI I Analytics Dashboard 
+
+// project description :-
+This is a single-page application using ReactJS where users can input queries, see suggestions matching their queries, and view results for those queries using mock data.
+
+// features :- 
+- mock data suggestions based on input
+- query history management
+- loading and error states
+- data visualization using recharts
+
+// tech stack :-
+- Frontend: React.js
+- State Management: Redux Toolkit
+- Styling: Tailwind CSS
+- Results Visualization: Recharts or Chart.js
+
+// usage :-
+- enter a query using the input field
+- view AI-powered suggestions as you type (using mock data)
+- see the displayed query results
+- access query history and re-submit previous queries
+
 // queryInput :- 
-created an input field which shows suggestions from the mockData array as the user types and when a user clicks on the submit uery button, results get displayed. 
+Created an input field showing suggestions from the mockData array as the user types, and results get displayed when a user clicks on the submit query button. 
 
 //queryHistory :-
-inside the queryInput component, there is the queryHistory component which displays the queries searched by the user.
+Inside the queryInput component is the queryHistory component, which displays the queries searched by the user.
 
 // resultDisplay :-
-in this component the result is displayed using recharts
+In this component, the result is displayed using recharts
 
 // react-redux :-
-redux is used to set query, give variable data to components and charge some values.
+Redux is used to set a query, give variable data to components, and change some values.
 
 // UI :-
-a simple UI is used which is user friendly.
+A simple UI is used, which is user-friendly.
+
+// deployemnt -
+hosted on Vercel: https://dashboard-inky-seven.vercel.app/
