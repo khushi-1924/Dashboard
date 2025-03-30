@@ -21,20 +21,13 @@ This is a single-page application using ReactJS where users can input queries, s
 - see the displayed query results
 - access query history and re-submit previous queries
 
-// queryInput :- 
-Created an input field showing suggestions from the mockData array as the user types, and results get displayed when a user clicks on the submit query button. 
+// components :-
+- queryInput: Created an input field showing suggestions from the mockData array as the user types, and results get displayed when a user clicks on the submit query button. 
+- queryHistory: Inside the queryInput component is the queryHistory component, which displays the queries searched by the user.
+- resultDisplay: In this component, the result is displayed using recharts
+- react-redux: Redux is used to set a query, give variable data to components, and change some values.
 
-//queryHistory :-
-Inside the queryInput component is the queryHistory component, which displays the queries searched by the user.
-
-// resultDisplay :-
-In this component, the result is displayed using recharts
-
-// react-redux :-
-Redux is used to set a query, give variable data to components, and change some values.
-
-// UI :-
-A simple UI is used, which is user-friendly.
+// UI :- A simple UI is used, which is user-friendly.
 
 // deployemnt -
 hosted on Vercel: https://dashboard-inky-seven.vercel.app/
